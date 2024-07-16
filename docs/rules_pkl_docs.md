@@ -102,6 +102,8 @@ Collect Pkl sources together so they can be used by other `rules_pkl` rules.
 ## pkl_package
 
 <pre>
+load("@rules_pkl//pkl:defs.bzl", "pkl_package")
+
 pkl_package(<a href="#pkl_package-name">name</a>, <a href="#pkl_package-srcs">srcs</a>, <a href="#pkl_package-extra_flags">extra_flags</a>, <a href="#pkl_package-project">project</a>)
 </pre>
 
