@@ -7,6 +7,8 @@ Public API re-exports
 ## pkl_codegen_java_toolchain
 
 <pre>
+load("@rules_pkl//pkl:defs.bzl", "pkl_codegen_java_toolchain")
+
 pkl_codegen_java_toolchain(<a href="#pkl_codegen_java_toolchain-name">name</a>, <a href="#pkl_codegen_java_toolchain-cli">cli</a>)
 </pre>
 
@@ -100,6 +102,8 @@ Collect Pkl sources together so they can be used by other `rules_pkl` rules.
 ## pkl_package
 
 <pre>
+load("@rules_pkl//pkl:defs.bzl", "pkl_package")
+
 pkl_package(<a href="#pkl_package-name">name</a>, <a href="#pkl_package-srcs">srcs</a>, <a href="#pkl_package-extra_flags">extra_flags</a>, <a href="#pkl_package-project">project</a>)
 </pre>
 
@@ -173,6 +177,8 @@ pkl_toolchain(<a href="#pkl_toolchain-name">name</a>, <a href="#pkl_toolchain-cl
 ## pkl_config_java_library
 
 <pre>
+load("@rules_pkl//pkl:defs.bzl", "pkl_config_java_library")
+
 pkl_config_java_library(<a href="#pkl_config_java_library-name">name</a>, <a href="#pkl_config_java_library-files">files</a>, <a href="#pkl_config_java_library-module_path">module_path</a>, <a href="#pkl_config_java_library-generate_getters">generate_getters</a>, <a href="#pkl_config_java_library-deps">deps</a>, <a href="#pkl_config_java_library-tags">tags</a>, <a href="#pkl_config_java_library-kwargs">kwargs</a>)
 </pre>
 
@@ -197,6 +203,8 @@ Create a compiled JAR of Java source files generated from Pkl source files.
 ## pkl_config_src
 
 <pre>
+load("@rules_pkl//pkl:defs.bzl", "pkl_config_src")
+
 pkl_config_src(<a href="#pkl_config_src-name">name</a>, <a href="#pkl_config_src-files">files</a>, <a href="#pkl_config_src-module_path">module_path</a>, <a href="#pkl_config_src-kwargs">kwargs</a>)
 </pre>
 
