@@ -19,7 +19,7 @@ load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_file")
 load("@bazel_tools//tools/build_defs/repo:utils.bzl", "maybe")
 load("@rules_jvm_external//:defs.bzl", "maven_install")
 load("//pkl/private:constants.bzl", "PKL_DEPS", "VERSIONS")
-load("//pkl/private:pkl_project.bzl", _pkl_project = "pkl_project")
+load("//pkl/private:pkl_project.bzl", _parse_pkl_project_deps_json = "parse_pkl_project_deps_json", _pkl_project = "pkl_project")
 load("//pkl/private:remote_pkl_package.bzl", _remote_pkl_package = "remote_pkl_package")
 load("//pkl/private:repositories.bzl", _project_cache_path_and_dependencies = "root_caches_and_dependencies")
 
@@ -51,3 +51,4 @@ project_cache_path_and_dependencies = _project_cache_path_and_dependencies
 
 remote_pkl_package = _remote_pkl_package
 pkl_project = _pkl_project
+parse_pkl_project_deps_json = _parse_pkl_project_deps_json
