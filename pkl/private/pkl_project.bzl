@@ -18,15 +18,15 @@ Repository rule for parsing the PklProject.deps.json and the PklProject file.
 
 load(":pkl_package_names.bzl", "transform_package_url_to_workspace_name")
 
-def parse_pkl_project_deps_json(pkl_deps_json_string_path):
+def parse_pkl_project_deps_json(pkl_deps_json_string):
     """Parses the contents of a JSON file containing Pkl Project dependencies.
 
     Args:
-        pkl_deps_json_string_path: path to JSON file containing Pkl Project dependencies.
+        pkl_deps_json_string: path to JSON file containing Pkl Project dependencies.
     Returns:
         A list of structs containing Pkl dependency data.
     """
-    lock_file_contents = json.decode(pkl_deps_json_string_path)
+    lock_file_contents = json.decode(pkl_deps_json_string)
 
     if lock_file_contents["schemaVersion"] != 1:
         fail("Unknown schema version in lock file:", lock_file_contents["schemaVersion"])
