@@ -98,6 +98,7 @@ java_binary(
     name = "pkl_cli_java",
     jvm_flags = [
         "-XX:MaxRAMPercentage=80.0",
+        "-XX:ReservedCodeCacheSize=50m",
     ],
     main_class = "org.pkl.cli.Main",
     runtime_deps = [
