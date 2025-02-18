@@ -21,15 +21,20 @@ load("@rules_jvm_external//:defs.bzl", "maven_install")
 load("//pkl/private:constants.bzl", "PKL_DEPS", "VERSIONS")
 load("//pkl/private:repositories.bzl", _project_cache_path_and_dependencies = "root_caches_and_dependencies")
 
-DEFAULT_PKL_VERSION = "0.27.2"
+DEFAULT_PKL_VERSION = "0.28.0-20250217.155026-75"
 
 def pkl_cli_binaries():
     version = DEFAULT_PKL_VERSION
     for arch, sha256 in VERSIONS[version].items():
+        if version == "0.28.0-20250217.155026-75":
+            url = "https://s01.oss.sonatype.org/service/local/repositories/snapshots/content/org/pkl-lang/pkl-cli-{arch}/0.28.0-SNAPSHOT/pkl-cli-{arch}-0.28.0-20250217.155026-75.bin".format(arch = arch)
+        else:
+            url = "https://github.com/apple/pkl/releases/download/{version}/pkl-{arch}".format(version = version, arch = arch)
+
         maybe(
             http_file,
             name = "pkl-cli-{arch}".format(arch = arch),
-            url = "https://github.com/apple/pkl/releases/download/{version}/pkl-{arch}".format(version = version, arch = arch),
+            url = url,
             sha256 = sha256,
             executable = True,
         )
@@ -41,8 +46,10 @@ def pkl_setup():
         name = "rules_pkl_deps",
         artifacts = PKL_DEPS[DEFAULT_PKL_VERSION],
         repositories = [
-            "https://repo1.maven.org/maven2/",
+            "https://oss.sonatype.org/content/repositories/snapshots/" if DEFAULT_PKL_VERSION.endswith("SNAPSHOT") else "https://repo1.maven.org/maven2/",
         ],
     )
 
 project_cache_path_and_dependencies = _project_cache_path_and_dependencies
+
+"https://s01.oss.sonatype.org/service/local/artifact/maven/redirect?r=snapshots&g=org.pkl-lang&v=LATEST&a=pkl-cli-macos-amd64&e=bin"

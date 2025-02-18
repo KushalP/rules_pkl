@@ -52,14 +52,14 @@ maven = use_extension("@rules_jvm_external//:extensions.bzl", "maven")
 maven.install(
     name = "rules_pkl_deps",
     artifacts = [
-        "org.pkl-lang:pkl-tools:0.27.2",
+        "org.pkl-lang:pkl-tools:0.28.0-20250217.155026-75",
         "org.jetbrains.kotlin:kotlin-stdlib:1.7.10",
         "com.google.code.gson:gson:2.10.1",
         "org.junit.vintage:junit-vintage-engine:5.7.0",
     ],
     lock_file = "//pkl/private:pkl_deps_install.json",
     repositories = [
-        "https://repo1.maven.org/maven2/",
+        "https://oss.sonatype.org/content/repositories/snapshots/",
     ],
 )
 use_repo(
